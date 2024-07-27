@@ -56,12 +56,11 @@ return [
             'throw' => false,
         ],
 
-        'disks' => [
-            // ... othe disks
-            'images' => [
-                'driver' => 'local',
-                'root' => 'public/uploads/images',
-            ]
+        
+        'images' => [
+            'driver' => 'local',
+            // 'root' => 'public/uploads/images',
+            'root' => public_path('uploads/images')
         ]
 
     ],

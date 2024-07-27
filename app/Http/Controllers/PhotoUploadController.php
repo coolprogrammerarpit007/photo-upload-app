@@ -12,20 +12,20 @@ class PhotoUploadController extends Controller
         return view('photo-upload');
     }
 
-    public function upload(Request $request)
+    public function store(Request $request)
     {
         // dd($request);
         // $request->validate([
         //     'logo' => 'required|image|mimes:jpeg,png,jpg,gif', 
         // ]);
         // dd($request);
-        $imageName = date('Y/m/d');
-        $request->logo->move(public_path('images'), $imageName);
+        $imageName = date('d');
+        $request->logo->move(public_path('upload/images'), $imageName);
         $photo = new Photo();
-        $photo->logo = 'public/images'.$imageName;
+        $photo->logo = '/upload/images/'.$imageName;
         // dd($photo);
         $photo->save();
-        return 'Photo Uploaded sucessfully!';
+        return redirect('/index');
     }
     
 }

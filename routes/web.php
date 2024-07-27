@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\PhotoUploadController;
+use App\Models\Photo;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PhotoUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PhotoUploadController::class,'show']);
 
-Route::post('/upload',[PhotoUploadController::class,'upload']);
+Route::post('/store',[PhotoUploadController::class,'store']);
+Route::get('/index',function(){
+    $photo = Photo::all();
+    $data = compact('photo');
+    return view('show-photo')->with($data);
+});
