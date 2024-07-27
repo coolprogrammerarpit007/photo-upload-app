@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhotoUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[PhotoUploadController::class,'show']);
+
+Route::post('/upload',[PhotoUploadController::class,'upload']);

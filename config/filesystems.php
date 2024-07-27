@@ -56,6 +56,14 @@ return [
             'throw' => false,
         ],
 
+        'disks' => [
+            // ... othe disks
+            'images' => [
+                'driver' => 'local',
+                'root' => 'public/uploads/images',
+            ]
+        ]
+
     ],
 
     /*
