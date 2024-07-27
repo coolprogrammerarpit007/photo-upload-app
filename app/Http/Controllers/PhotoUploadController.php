@@ -20,10 +20,16 @@ class PhotoUploadController extends Controller
         // ]);
         // dd($request);
         $imageName = date('d');
-        $request->logo->move(public_path('upload/images'), $imageName);
+      //  $request->logo->move(public_path('upload/images'), $imageName);
+
+        $image =  $request->file('logo');
+    $path = $image->storeAs(
+        'images',
+        microtime() . '-' . $image->getClientOriginalName(),
+        'images'
+    );
         $photo = new Photo();
-        $photo->logo = '/upload/images/'.$imageName;
-        // dd($photo);
+        $photo->logo = $path;
         $photo->save();
         return redirect('/index');
     }

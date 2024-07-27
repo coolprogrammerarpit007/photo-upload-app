@@ -60,7 +60,9 @@ return [
         'images' => [
             'driver' => 'local',
             // 'root' => 'public/uploads/images',
-            'root' => public_path('uploads/images')
+            'root' => public_path('uploads'),
+            'url' => env('APP_URL'),
+
         ]
 
     ],
